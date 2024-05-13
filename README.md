@@ -1,3 +1,5 @@
+
+# ocp4-metal-install
 # OpenShift 4 Bare Metal Install - User Provisioned Infrastructure (UPI)
 
 - [OpenShift 4 Bare Metal Install - User Provisioned Infrastructure (UPI)](#openshift-4-bare-metal-install---user-provisioned-infrastructure-upi)
@@ -47,22 +49,27 @@
 1. Create 3 Control Plane virtual machines with minimum settings:
    - Name: ocp-cp-# (Example ocp-cp-1)
    - 4vcpu
-   - 8GB RAM
-   - 50GB HDD
+   -16GB RAM
+   - 100GB HDD
    - NIC connected to the OCP network
    - Load the rhcos-X.X.X-x86_64-installer.x86_64.iso image into the CD/DVD drive
+   only for POC per Vmware you need enables below option  
+   disk.EnableUUID parameter’s value to TRUE on VMware vSphere for user-provisioned infrastructure. 
+   Click Edit Configuration in Configuration Parameters; Click Add parameter; In the Key column, type disk.EnableUUID; In the Value column, type TRUE; Click OK. 
+
+Click Edit Configuration in Configuration Parameters; Click Add parameter; In the Key column, type disk.EnableUUID; In the Value column, type TRUE; Click OK. 
 1. Create 2 Worker virtual machines (or more if you want) with minimum settings:
    - Name: ocp-w-# (Example ocp-w-1)
    - 4vcpu
-   - 8GB RAM
-   - 50GB HDD
+   -16GB RAM
+   - 100GB HDD
    - NIC connected to the OCP network
    - Load the rhcos-X.X.X-x86_64-installer.x86_64.iso image into the CD/DVD drive
 1. Create a Bootstrap virtual machine (this vm will be deleted once installation completes) with minimum settings:
    - Name: ocp-boostrap
    - 4vcpu
-   - 8GB RAM
-   - 50GB HDD
+   - 16 GB RAM
+   - 100GB HDD
    - NIC connected to the OCP network
    - Load the rhcos-X.X.X-x86_64-installer.x86_64.iso image into the CD/DVD drive
 1. Create a Services virtual machine with minimum settings:
@@ -131,10 +138,11 @@
    dnf install git -y
    ```
 
-1. Download [config files](https://github.com/ryanhay/ocp4-metal-install) for each of the services
+1. Download [config files](https://github.com/datascience809/ocp4-metal-install.git) for each of the services
 
-   ```bash
-   git clone https://github.com/ryanhay/ocp4-metal-install
+   ```bashdatascience809
+
+   git clone https://github.com/datascience809/ocp4-metal-install.git
    ```
 
 1. OPTIONAL: Create a file '~/.vimrc' and paste the following (this helps with editing in vim, particularly yaml files):
