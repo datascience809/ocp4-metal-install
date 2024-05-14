@@ -27,15 +27,7 @@ api.lab.ocp.lan.        IN    A    192.168.22.1
 api-int.lab.ocp.lan.    IN    A    192.168.22.1
 *.apps.lab.ocp.lan.     IN    A    192.168.22.1
 
-; ETCD Cluster
-etcd-0.lab.ocp.lan.    IN    A     192.168.22.201
-etcd-1.lab.ocp.lan.    IN    A     192.168.22.202
-etcd-2.lab.ocp.lan.    IN    A     192.168.22.203
 
-; OpenShift Internal SRV records (cluster name = lab)
-_etcd-server-ssl._tcp.lab.ocp.lan.    86400     IN    SRV     0    10    2380    etcd-0.lab
-_etcd-server-ssl._tcp.lab.ocp.lan.    86400     IN    SRV     0    10    2380    etcd-1.lab
-_etcd-server-ssl._tcp.lab.ocp.lan.    86400     IN    SRV     0    10    2380    etcd-2.lab
 
 oauth-openshift.apps.lab.ocp.lan.     IN     A     192.168.22.1
 console-openshift-console.apps.lab.ocp.lan.     IN     A     192.168.22.1
